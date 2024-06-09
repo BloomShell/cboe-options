@@ -8,4 +8,4 @@ if "%1"=="-h" (
 )
 
 REM Run the Python script
-python "C:\Users\pie4e\Desktop\Nodes\Handsh4ke\cboe-options\run.py" %*
+python "C:\cboe-options\run.py" %*
