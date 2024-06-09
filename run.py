@@ -99,10 +99,10 @@ if __name__ == "__main__":
             logging.critical(f"Unhandled exception for symbol: {symbol} - {e}")
 
     # Get the number of symbols (directories) in the options directory
-    num_symbols = len(os.listdir("../hub/options"))
+    num_symbols = len(os.listdir("hub/options"))
 
     # Get the number of JSON files in the options directory
-    num_files = len(glob.glob("../hub/options/*/*.json"))
+    num_files = len(glob.glob("hub/options/*/*.json"))
 
     # Load the HTML template for the email content
     content = open(r"../static/templates/newsletter.html").read()
@@ -131,7 +131,7 @@ if __name__ == "__main__":
 
     # Attach the log file
     log_file_path = "log/cboe-options.log"
-    log_part = MIMEApplication(open("log\cboe-options-10062024.log", 'rb').read(), Name=os.path.basename(log_file_path))
+    log_part = MIMEApplication(open(f"log\cboe-options-{sd}.log", 'rb').read(), Name=os.path.basename(log_file_path))
     log_part['Content-Disposition'] = f'attachment; filename="{os.path.basename(log_file_path)}"'
     msg.attach(log_part)
 
